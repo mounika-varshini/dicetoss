@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link href='https://fonts.googleapis.com/css?family=Acme' rel='stylesheet'>
+    </head>
+    <body>
+        <div class="container">
+            <h1 id="heading">2 DICE GAME</h1>
+            <h3>check your luck!!</h5>
+            <div class="dice">
+                <h2>Player 1</h2>
+                <img  src="images/dice1.png" id="check1">
+            </div>
+            <div class="dice">
+                <h2>Player 2</h2>
+                <img  src="images/dice1.png"id="check2">
+            </div>
+            <div>
+                <button onclick="diceGame()">Roll</button>
+            </div>
+        </div>
+    </body>
+    <script>
+        
+        function diceGame(){
+            const play1=Math.ceil(Math.random()*6);
+        const play1dice=`images/dice${play1}.png`;
+        document.getElementById("check1").setAttribute('src',play1dice);
+        const play2=Math.ceil(Math.random()*6);
+        const play2dice=`images/dice${play2}.png`;
+        document.getElementById("check2").setAttribute('src',play2dice);
+            if(play1>play2){
+                document.getElementById('heading').innerHTML="Player1 - 1 <br> Player2 - 0";
+                //document.getElementById('heading').innerHTML="Player2-0:(";
+            }
+            else if(play1<play2){
+                document.getElementById('heading').innerHTML="Player1 - 0 <br> Player2 - 1";
+    
+            }
+            else{
+                document.getElementById('heading').innerHTML="DRAW!!";
+            }
+        }
+    </script>
+</html>
